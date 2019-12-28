@@ -12,7 +12,3 @@ _atom_packages_install:
     - "https://atom.io/download/rpm"
   Fedora_31:
     - "https://atom.io/download/rpm"
-  Debian_10:
-    - "https://atom.io/download/deb"
-  Ubuntu_18:
-    - "https://atom.io/download/deb"

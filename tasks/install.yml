@@ -11,8 +11,21 @@
       or ansible_distribution == 'RedHat'
 
 - name: apt packages are installed
-  apt:
-    deb: "{{ atom_packages_install }}"
+  block:
+    - name: prereq apt packages are installed
+      package:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - gnupg-agent
+          - software-properties-common
+        state: present
+
+    - name: apt packages are installed
+      apt:
+        deb: "{{ atom_packages_install }}"
   become: true
   when:
     - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

@@ -22,15 +22,6 @@ Requirements
 Role Variables
 --------------
 
-```
-atom_remove_packages: true
-atom_enable_service: true
-atom_enable_selinux: true
-atom_firewall_configure: true
-atom_firewall_rules:
-  - service:
-```
-
 Dependencies
 ------------
 
@@ -50,12 +41,6 @@ Example Playbook
     - name: atom is configured
       import_role:
         name: crivetimihai.atom
-      vars:
-        atom_remove_packages: true
-        atom_enable_service: true
-        atom_firewall_configure: true
-        atom_firewall_rules:
-          - service:
       tags: atom
 ```
 
