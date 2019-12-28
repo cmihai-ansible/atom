@@ -1,0 +1,8 @@
+---
+# Install atom packages
+
+- name: packages are installed
+  package:
+    name: "{{ atom_packages_install }}"
+    state: present
+  become: true
