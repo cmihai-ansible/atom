@@ -1,8 +1,18 @@
 ---
 # Install atom packages
 
-- name: packages are installed
+- name: rpm packages are installed
   package:
     name: "{{ atom_packages_install }}"
     state: present
   become: true
+  when:
+    - ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'
+      or ansible_distribution == 'RedHat'
+
+- name: apt packages are installed
+  apt:
+    deb: "{{ atom_packages_install }}"
+  become: true
+  when:
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
