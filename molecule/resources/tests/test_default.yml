@@ -1,11 +1,7 @@
 # Molecule managed
 ---
-command:
-  help:
-    exit-status: 0
-    exec: "systemctl is-active atom"
-    stdout:
-      - "/active/"
-    stderr: []
-    timeout: 10000      # in milliseconds
-    skip: false
+file:
+  /usr/bin/atom:
+    exists: true
+    owner: root
+    group: root
